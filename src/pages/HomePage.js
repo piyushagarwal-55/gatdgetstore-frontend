@@ -20,19 +20,18 @@ const HomePage = () => {
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
 
-  //get all cat
   const getAllCategory = async () => {
-    try {
-      const API = process.env.REACT_APP_API;
-      const { data } = await axios.get(`${API}/api/v1/category/get-category`);
-     
-      if (data?.success) {
-        setCategories(data?.category);
-      }
-    } catch (error) {
-      console.log(error);
+  try {
+    const API = process.env.REACT_APP_API?.replace(/\/+$/, "");
+    const { data } = await axios.get(`${API}/api/v1/category/get-category`);
+    if (data?.success) {
+      setCategories(data?.category);
     }
-  };
+  } catch (error) {
+    console.error("Category Fetch Error:", error);
+  }
+};
+
 
   useEffect(() => {
     getAllCategory();
