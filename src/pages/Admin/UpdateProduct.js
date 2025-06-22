@@ -47,7 +47,7 @@ const UpdateProduct = () => {
   const getAllCategory = async () => {
     try {
       const API = process.env.REACT_APP_API;
-      const { data } = await axios.get(`${API}/api/v1/category/get-category`);
+      const { data } = await axios.get(`${API}`);
      
       if (data?.success) {
         setCategories(data?.category);
