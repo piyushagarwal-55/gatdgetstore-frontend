@@ -95,7 +95,7 @@ const CartPage = () => {
                 <div className="cart-details">
                   <h5>{p.name}</h5>
                   <p>{p.description.substring(0, 60)}...</p>
-                  <h6>${p.price}</h6>
+                  <h6>₹{p.price}</h6>
                   <button
                     className="btn btn-sm btn-outline-danger mt-2"
                     onClick={() => removeCartItem(p._id)}
