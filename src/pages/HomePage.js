@@ -21,16 +21,16 @@ const HomePage = () => {
   const [loading, setLoading] = useState(false);
 
   const getAllCategory = async () => {
-  try {
-    const API = process.env.REACT_APP_API?.replace(/\/+$/, "");
-    const { data } = await axios.get(`${API}/api/v1/category/get-category`);
-    if (data?.success) {
-      setCategories(data?.category);
+    try {
+      const API = process.env.REACT_APP_API?.replace(/\/+$/, "");
+      const { data } = await axios.get(`${API}/api/v1/category/get-category`);
+      if (data?.success) {
+        setCategories(data?.category);
+      }
+    } catch (error) {
+      console.error("Category Fetch Error:", error);
     }
-  } catch (error) {
-    console.error("Category Fetch Error:", error);
-  }
-};
+  };
 
 
   useEffect(() => {
@@ -43,7 +43,7 @@ const HomePage = () => {
       setLoading(true);
       const API = process.env.REACT_APP_API;
       const { data } = await axios.get(`${API}/api/v1/product/product-list/${page}`);
-     
+
       setLoading(false);
       setProducts(data.products);
     } catch (error) {
@@ -57,7 +57,7 @@ const HomePage = () => {
     try {
       const API = process.env.REACT_APP_API;
       const { data } = await axios.get(`${API}/api/v1/product/product-count`);
-    
+
       setTotal(data?.total);
     } catch (error) {
       console.log(error);
@@ -75,7 +75,7 @@ const HomePage = () => {
       const API = process.env.REACT_APP_API;
       const { data } = await axios.get(`${API}/api/v1/product/product-list/${page}`);
 
-    
+
       setLoading(false);
       setProducts([...products, ...data?.products]);
     } catch (error) {
@@ -119,27 +119,27 @@ const HomePage = () => {
     <Layout title={"Gadget Store "}>
       {/* banner image */}
       <main>
-      <div class="container">
-        <div class="hero-section">
-           <div class="left">
-            <p class="hero-subheading">Explore the Latest in Tech Industries</p>
-            <h1 class="hero-heading">
-              Your Destination for Cutting-Edge Gadgets!
-            </h1>
-            <p class="hero-para">
-              Welcome to Gadget Store, your ultimate destination for
-              cutting-edge gadgets! Explore the latest in tech innovation and
-              style with us. Shop now and discover a world of possibilities!
-            </p>
-            <div class="hero-btnn">
-              <a href="#productsection" class="btnss">Explore Our Products</a>
+        <div class="container">
+          <div class="hero-section">
+            <div class="left">
+              <p class="hero-subheading">Explore the Latest in Tech Industries</p>
+              <h1 class="hero-heading">
+                Your Destination for Cutting-Edge Gadgets!
+              </h1>
+              <p class="hero-para">
+                Welcome to Gadget Store, your ultimate destination for
+                cutting-edge gadgets! Explore the latest in tech innovation and
+                style with us. Shop now and discover a world of possibilities!
+              </p>
+              <div class="hero-btnn">
+                <a href="#productsection" class="btnss">Explore Our Products</a>
+              </div>
             </div>
-           </div>
-           <div class="right">
-                <img src="../../images/heroImage.png" class="hero-section-logo"/>
-           </div>
+            <div class="right">
+              <img src="../../images/heroImage.png" class="hero-section-logo" />
+            </div>
+          </div>
         </div>
-      </div>
       </main>
       {/* banner image */}
       <div className="container-fluid row mt-3 home-page">
@@ -189,11 +189,12 @@ const HomePage = () => {
                   <div className="card-name-price">
                     <h5 className="card-title">{p.name}</h5>
                     <h5 className="card-title card-price">
-                      {p.price.toLocaleString("en-US", {
+                      {p.price.toLocaleString("en-IN", {
                         style: "currency",
-                        currency: "USD",
+                        currency: "INR",
                       })}
                     </h5>
+
                   </div>
                   <p className="card-text ">
                     {p.description.substring(0, 60)}...
