@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import Layout from "./../../components/Layout/Layout";
 import AdminMenu from "./../../components/Layout/AdminMenu";
 import toast from "react-hot-toast";
-import s from "s";
+import axios from "axios";
+
 import { Select } from "antd";
 import { useNavigate } from "react-router-dom";
 const { Option } = Select;
@@ -21,7 +22,8 @@ const CreateProduct = () => {
   //get all category
   const getAllCategory = async () => {
     try {
-      const { data } = await s.get("/api/v1/category/get-category");
+      const { data } = await axios.get(`${process.env.REACT_APP_API}/api/v1/category/get-category`);
+
       if (data?.success) {
         setCategories(data?.category);
       }
@@ -46,10 +48,11 @@ const CreateProduct = () => {
       productData.append("quantity", quantity);
       productData.append("photo", photo);
       productData.append("category", category);
-      const { data } = s.post(
-        "/api/v1/product/create-product",
-        productData
-      );
+     const { data } = await axios.post(
+  `${process.env.REACT_APP_API}/api/v1/product/create-product`,
+  productData
+);
+
       if (data?.success) {
         toast.error(data?.message);
       } else {

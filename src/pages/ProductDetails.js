@@ -76,7 +76,7 @@ const ProductDetails = () => {
           <div className="product-detail-card">
             <div className="product-image">
               <img
-                src={`/api/v1/product/product-photo/${product._id}`}
+                src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${product._id}`}
                 alt={product.name}
               />
             </div>
@@ -111,10 +111,8 @@ const ProductDetails = () => {
             <div className="d-flex flex-wrap">
               {relatedProducts.map((p) => (
                 <div className="similar-product-card" key={p._id}>
-                  <img
-                    src={`/api/v1/product/product-photo/${p._id}`}
-                    alt={p.name}
-                  />
+                 <img src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`} alt={p.name} />
+
                   <div className="similar-product-info">
                     <h5>{p.name}</h5>
                     <p className="price">

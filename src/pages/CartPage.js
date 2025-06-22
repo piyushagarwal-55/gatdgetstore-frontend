@@ -87,10 +87,11 @@ const CartPage = () => {
             {cart?.map((p) => (
               <div className="cart-card" key={p._id}>
                 <img
-                  src={`/api/v1/product/product-photo/${p._id}`}
+                  src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
                   alt={p.name}
                   className="cart-img"
                 />
+
                 <div className="cart-details">
                   <h5>{p.name}</h5>
                   <p>{p.description.substring(0, 60)}...</p>

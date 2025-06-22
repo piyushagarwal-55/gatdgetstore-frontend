@@ -74,7 +74,7 @@ const UpdateProduct = () => {
       photo && productData.append("photo", photo);
       productData.append("category", category);
       const API = process.env.REACT_APP_API;
-      const { data } = axios.put(
+      const { data } = await axios.put(
         `${API}/api/v1/product/update-product/${id}`,
         productData
       );
@@ -157,8 +157,8 @@ const UpdateProduct = () => {
                   </div>
                 ) : (
                   <div className="text-center">
-                    <img
-                      src={`/api/v1/product/product-photo/${id}`}
+                  <img src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${id}`} 
+
                       alt="product_photo"
                       height={"200px"}
                       className="img img-responsive"
