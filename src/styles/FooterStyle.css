@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+.section-footer {
+  background-color: #111;
+  color: #eee;
+  padding: 50px 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.content {
+  flex: 1 1 220px;
+  min-width: 220px;
+}
+
+.content h4 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: #f4b400;
+}
+
+.content p, .content li, .content a {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #ccc;
+  text-decoration: none;
+}
+
+.content ul {
+  list-style: none;
+  padding: 0;
+}
+
+.content li:hover,
+.content a:hover {
+  color: #f4b400;
+  cursor: pointer;
+}
+
+.f-mail {
+  display: flex;
+  align-items: center;
+  background: #222;
+  border-radius: 30px;
+  overflow: hidden;
+  margin-top: 1rem;
+}
+
+.f-mail input {
+  padding: 10px;
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #eee;
+  padding-left: 20px;
+}
+
+.f-mail button {
+  background: #f4b400;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.f-mail button:hover {
+  background: #e0a800;
+}
+
+.f-design {
+  text-align: center;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #333;
+  font-size: 0.85rem;
+  color: #999;
+}

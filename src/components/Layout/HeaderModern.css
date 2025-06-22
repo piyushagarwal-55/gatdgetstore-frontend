@@ -1,0 +1,73 @@
+.navbar-custom {
+  background: #ffffff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  padding: 0.75rem 1rem;
+  transition: all 0.3s ease;
+  z-index: 1050;
+}
+
+.logo-text {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #343a40;
+  text-decoration: none;
+}
+
+.navbar-nav .nav-link {
+  font-size: 1rem;
+  padding: 8px 14px;
+  color: #555;
+  transition: color 0.2s ease;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  color: #007bff;
+}
+
+.nav-item-custom {
+  margin-right: 0.75rem;
+}
+
+.nav-user-btn {
+  background: none;
+  border: none;
+  color: #555;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.nav-user-btn:hover {
+  color: #007bff;
+}
+
+.dropdown-menu {
+  border-radius: 0.5rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  min-width: 200px;
+}
+
+.dropdown-item {
+  font-size: 0.95rem;
+  padding: 10px 16px;
+  color: #333;
+}
+
+.dropdown-item:hover {
+  background-color: #f0f2f5;
+  color: #007bff;
+}
+
+.cart-icon {
+  font-size: 1.2rem;
+  color: #555;
+  position: relative;
+  margin-left: 10px;
+}
+
+.cart-icon:hover {
+  color: #007bff;
+}
