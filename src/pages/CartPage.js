@@ -36,7 +36,8 @@ const CartPage = () => {
 
   const getToken = async () => {
     try {
-      const { data } = await axios.get("/api/v1/product/braintree/token");
+      const API = process.env.REACT_APP_API;
+      const { data } = await axios.get(`${API}/api/v1/product/braintree/token`);
       setClientToken(data?.clientToken);
     } catch (error) {
       console.error(error);
@@ -51,7 +52,8 @@ const CartPage = () => {
     try {
       setLoading(true);
       const { nonce } = await instance.requestPaymentMethod();
-      const { data } = await axios.post("/api/v1/product/braintree/payment", {
+      const API = process.env.REACT_APP_API;
+      const { data } = await axios.post(`${API}/api/v1/product/braintree/payment`, {
         nonce,
         cart,
       });

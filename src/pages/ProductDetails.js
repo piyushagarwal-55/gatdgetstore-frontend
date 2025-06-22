@@ -20,9 +20,9 @@ const ProductDetails = () => {
   const getProduct = async () => {
     setLoadingProduct(true);
     try {
-      const { data } = await axios.get(
-        `/api/v1/product/get-product/${params.slug}`
-      );
+      const API = process.env.REACT_APP_API;
+       const { data } = await axios.get(`${API}/api/v1/product/get-product/${params.slug}`);
+      
 
       if (data?.product) {
         setProduct(data.product);
@@ -53,8 +53,9 @@ const ProductDetails = () => {
   const getSimilarProduct = async (pid, cid) => {
     setLoadingRelated(true);
     try {
+      const API = process.env.REACT_APP_API;
       const { data } = await axios.get(
-        `/api/v1/product/related-product/${pid}/${cid}`
+        `${API}/api/v1/product/related-product/${pid}/${cid}`
       );
       setRelatedProducts(data?.products || []);
     } catch (error) {
