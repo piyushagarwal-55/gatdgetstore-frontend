@@ -22,11 +22,11 @@ const CartPage = () => {
     cart?.forEach((item) => {
       total += item.price;
     });
-    return total.toLocaleString("en-US", {
+    return total.toLocaleString("en-IN", {
       style: "currency",
-      currency: "USD",
-    });
-  };
+      currency: "INR",
+    })
+  }
 
   const removeCartItem = (pid) => {
     const updatedCart = cart.filter((item) => item._id !== pid);

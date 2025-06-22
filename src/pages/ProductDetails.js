@@ -21,8 +21,8 @@ const ProductDetails = () => {
     setLoadingProduct(true);
     try {
       const API = process.env.REACT_APP_API;
-       const { data } = await axios.get(`${API}/api/v1/product/get-product/${params.slug}`);
-      
+      const { data } = await axios.get(`${API}/api/v1/product/get-product/${params.slug}`);
+
 
       if (data?.product) {
         setProduct(data.product);
@@ -84,9 +84,9 @@ const ProductDetails = () => {
               <h2>{product.name}</h2>
               <p className="product-description">{product.description}</p>
               <p className="product-price">
-                {product?.price?.toLocaleString("en-US", {
+                {product?.price?.toLocaleString("en-IN", {
                   style: "currency",
-                  currency: "USD",
+                  currency: "INR",
                 })}
               </p>
               <p className="product-category">
@@ -111,14 +111,14 @@ const ProductDetails = () => {
             <div className="d-flex flex-wrap">
               {relatedProducts.map((p) => (
                 <div className="similar-product-card" key={p._id}>
-                 <img src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`} alt={p.name} />
+                  <img src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`} alt={p.name} />
 
                   <div className="similar-product-info">
                     <h5>{p.name}</h5>
                     <p className="price">
-                      {p.price.toLocaleString("en-US", {
+                      {p.price.toLocaleString("en-IN", {
                         style: "currency",
-                        currency: "USD",
+                        currency: "INR",
                       })}
                     </p>
                     <p>{p.description.substring(0, 60)}...</p>
