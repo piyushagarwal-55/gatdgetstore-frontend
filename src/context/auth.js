@@ -18,7 +18,6 @@ const AuthProvider = ({ children }) => {
         token: parseData.token,
       });
 
-      // ✅ Set the default Authorization header after retrieving token
       axios.defaults.headers.common["Authorization"] = `Bearer ${parseData.token}`;
     }
     // eslint-disable-next-line
@@ -31,7 +30,6 @@ const AuthProvider = ({ children }) => {
   );
 };
 
-// Custom hook
 const useAuth = () => useContext(AuthContext);
 
 export { useAuth, AuthProvider };
